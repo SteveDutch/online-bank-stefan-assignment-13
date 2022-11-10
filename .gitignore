@@ -29,3 +29,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### mein ###
+application.properties
+src/main/resources/application.properties
