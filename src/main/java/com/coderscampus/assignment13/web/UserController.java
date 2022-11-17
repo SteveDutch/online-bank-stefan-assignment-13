@@ -49,6 +49,7 @@ public class UserController {
 	@GetMapping("/users/{userId}")
 	public String getOneUser (ModelMap model, @PathVariable Long userId) {
 		User user = userService.findById(userId);
+		// TODO - 2 x model n einem GetMapping, seems to be code smell for Trevor & a sign for two views
 		model.put("users", Arrays.asList(user));
 		model.put("user", user);
 		return "users";
