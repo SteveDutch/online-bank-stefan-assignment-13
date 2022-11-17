@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 	<head>
-		<title>Users</title>
+		<title th:if="${#lists.size(users) == 1}">User</title>
+		<title th:unless="${#lists.size(users) == 1}">Users</title>
 	</head>
 	<body>
-		<h1>Users</h1>
+		<h1 th:if="${#lists.size(users) == 1}">User</h1>
+		<h1 th:unless="${#lists.size(users) == 1}">Users</h1>
 		
 		<div th:if="${#lists.size(users) == 1}">
 			<form action="" method="post">
