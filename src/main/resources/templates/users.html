@@ -46,7 +46,9 @@
 		    <a th:href="@{/users/{user}(user=${user.userId})}"><span th:text="|ID: ${user.userId}|"></span></a><br/>
 			<span th:text="|username:&emsp; ${user.username}|"></span><br/>
 			<span th:text="|fullname:&emsp; ${user.name}|"></span><br/>
-			<span th:text="|password:&emsp; ${user.password}|"></span>
+			<span th:text="|password:&emsp; ${user.password}|"></span><br/>
+			<!-- TODO: ggf noch Datumsausgabe bei NULL unterdrücken & bei update hinzufügen-->
+			<span th:text="|created :&emsp; ${#temporals.format(user.createdDate, 'dd-MM-yyyy')}"></span>
 			<hr/>
 		</div>
 

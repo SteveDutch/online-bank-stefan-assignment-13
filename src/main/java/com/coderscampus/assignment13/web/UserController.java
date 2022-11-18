@@ -1,5 +1,6 @@
 package com.coderscampus.assignment13.web;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Set;
 
@@ -23,14 +24,16 @@ public class UserController {
 	public String getCreateUser (ModelMap model) {
 		
 		model.put("user", new User());
-		
+//	nicht notwendig:	model.addAttribute("localDate", LocalDate.now());
 		return "register";
 	}
 	
 	@PostMapping("/register")
 	public String postCreateUser (User user) {
-		System.out.println(user);
+	 
 		userService.saveUser(user);
+		 // TODO don't forget to delete this syso 
+		System.out.println(user);
 		return "redirect:/register";
 	}
 	

@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity // Class name = User, DB Table name = user
 @Table(name = "users")
 public class User {
@@ -22,6 +24,7 @@ public class User {
 	private String username;
 	private String password;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate createdDate;
 	private List<Account> accounts = new ArrayList<>();
 	private Address address;
@@ -78,7 +81,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", name=" + name
-				+ ", accounts=" + accounts + ", address=" + address + "]";
+				+ ", accounts=" + accounts + ", address=" + address + "]" + "created:  "+ createdDate;
 	}
 	@Override
 	public int hashCode() {

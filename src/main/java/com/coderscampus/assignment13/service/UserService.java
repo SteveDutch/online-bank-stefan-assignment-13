@@ -52,7 +52,10 @@ public class UserService {
 
 	public User saveUser(User user) {
 		if (user.getUserId() == null) {
-			Account checking = new Account();
+ // TODO don't forget to delete this syso		    
+		    System.out.println(user);
+		    
+		    Account checking = new Account();
 			checking.setAccountName("Checking Account");
 			checking.getUsers().add(user);
 			Account savings = new Account();
