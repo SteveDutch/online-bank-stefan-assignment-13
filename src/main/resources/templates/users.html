@@ -3,13 +3,21 @@
 	<head>
 		<title th:if="${#lists.size(users) == 1}">User</title>
 		<title th:unless="${#lists.size(users) == 1}">Users</title>
+		<link rel="stylesheet" href="/css/users.css" />
 	</head>
 	<body>
 		<h1 th:if="${#lists.size(users) == 1}">User</h1>
 		<h1 th:unless="${#lists.size(users) == 1}">Users</h1>
+		<div th:unless="${#lists.size(users) == 1}">
+			<a href ="register" target="_blank" rel="noopener"></href><span id="new_user">create new user</span></a><hr>
+		</div>
+
 		
 		<div th:if="${#lists.size(users) == 1}">
 			<form action="" method="post">
+				<div>
+					<span th:text="|ID: ${user.userId}|"></span>
+				</div>
 				<div>
 					Username: <input type="text" th:field="${user.username}" />
 				</div>
@@ -26,6 +34,12 @@
 			<form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
 				<input type="submit" value="Delete User Account" />
 			</form>
+			<div th:each="account : ${user.accounts}">
+				<span th:text="|account name:&emsp; ${account.accountName}|"></span>
+			</div>
+			<div>
+				<a href="http://127.0.0.1:8080/users"><span>Back to Users</span></a>
+			</div>
 		</div>
 		
 		<div th:unless="${#lists.size(users) == 1}" th:each="user : ${users}">
@@ -33,10 +47,8 @@
 			<span th:text="|username:&emsp; ${user.username}|"></span><br/>
 			<span th:text="|fullname:&emsp; ${user.name}|"></span><br/>
 			<span th:text="|password:&emsp; ${user.password}|"></span>
-			<div th:each="account : ${user.accounts}">
-				<span th:text="|account name:&emsp; ${account.accountName}|"></span>
-			</div>
 			<hr/>
 		</div>
+
 	</body>
 </html>
