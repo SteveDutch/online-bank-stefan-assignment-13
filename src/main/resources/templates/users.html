@@ -48,6 +48,9 @@
 			<span th:text="|fullname:&emsp; ${user.name}|"></span><br/>
 			<span th:text="|password:&emsp; ${user.password}|"></span><br/>
 			<!-- TODO: ggf noch Datumsausgabe bei NULL unterdrücken & bei update hinzufügen-->
+			<div th:each="account : ${user.accounts}">
+				<span th:text="|account name:&emsp; ${account.accountName}|"></span>
+			</div>
 			<span th:text="|created :&emsp; ${#temporals.format(user.createdDate, 'dd-MM-yyyy')}"></span>
 			<hr/>
 		</div>
