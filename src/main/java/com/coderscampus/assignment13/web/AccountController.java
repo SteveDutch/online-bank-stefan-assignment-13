@@ -40,7 +40,7 @@ public class AccountController {
         accountService.saveAccount(account);
 
 
-        return "redirect:/users/";
+        return "redirect:/users/{userId}/accounts/{accountId}";
     }
 
     

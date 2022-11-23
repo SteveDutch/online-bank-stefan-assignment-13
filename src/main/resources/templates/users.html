@@ -27,6 +27,7 @@
 				<div>
 					Full Name: <input type="text" th:field="${user.name}" />
 				</div>
+					<hr>
 				<div>
 					<input type="submit" value="Update User Account" />
 				</div>
@@ -34,9 +35,11 @@
 			<form th:action="@{/users/{userId}/delete(userId=${user.userId})}" method="post">
 				<input type="submit" value="Delete User Account" />
 			</form>
+			<hr>
+			<h2>Accounts</h2>
 			<div th:each="account : ${user.accounts}">
-				<span th:text="|account name:&emsp; ${account.accountName}|"></span>
-			</div>
+				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" ><span th:text="|Account ${account.accountId}:&emsp; ${account.accountName}|"></span><a/>
+			</div><hr>
 			<div>
 				<a href="http://127.0.0.1:8080/users"><span>Back to Users</span></a>
 			</div>
@@ -48,12 +51,13 @@
 			<span th:text="|fullname:&emsp; ${user.name}|"></span><br/>
 			<span th:text="|password:&emsp; ${user.password}|"></span><br/>
 			<!-- TODO: ggf noch Datumsausgabe bei NULL unterdrücken & bei update hinzufügen-->
+	
 			<div th:each="account : ${user.accounts}">
-				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" target="_blank" rel="noopener">			
+				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" >			
 					<span th:text="|account name: #${account.accountId} &emsp; ${account.accountName}|"></span></a>
 			</div>
 			<span th:text="|created :&emsp; ${#temporals.format(user.createdDate, 'dd-MM-yyyy')}"></span>
-			<hr/>
+			<hr>
 		</div>
 
 	</body>
