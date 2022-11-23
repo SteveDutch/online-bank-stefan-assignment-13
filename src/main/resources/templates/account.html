@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title> Account</title>
+	</head>
+	<body>
+		<h1 th:text="|Account: #${account.accountId} &emsp; ${account.accountName}"> Account</h1>
+		
+		<form action="" method="post">
+			<div>
+				Account Name: <input type="text" th:field="${account.accountName}" />
+				<br>
+
+
+			
+				<input type="submit" value="Save Account" />
+			</div>
+			<div>
+				<!-- TODO: maybe it's better without 127....? -->
+				<a href="http://127.0.0.1:8080/users/"><span>Back to Users</span></a>
+			</div>
+		</form>
+	</body>
+</html>

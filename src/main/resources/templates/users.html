@@ -49,7 +49,8 @@
 			<span th:text="|password:&emsp; ${user.password}|"></span><br/>
 			<!-- TODO: ggf noch Datumsausgabe bei NULL unterdrücken & bei update hinzufügen-->
 			<div th:each="account : ${user.accounts}">
-				<span th:text="|account name:&emsp; ${account.accountName}|"></span>
+				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" target="_blank" rel="noopener">			
+					<span th:text="|account name: #${account.accountId} &emsp; ${account.accountName}|"></span></a>
 			</div>
 			<span th:text="|created :&emsp; ${#temporals.format(user.createdDate, 'dd-MM-yyyy')}"></span>
 			<hr/>
