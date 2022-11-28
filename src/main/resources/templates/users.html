@@ -12,7 +12,7 @@
 			<a href ="register" target="_blank" rel="noopener"></href><span id="new_user">create new user</span></a><hr>
 		</div>
 
-		
+		<!-- ONE user  -->
 		<div th:if="${#lists.size(users) == 1}">
 			<form action="" method="post">
 				<div>
@@ -38,13 +38,19 @@
 			<hr>
 			<h2>Accounts</h2>
 			<div th:each="account : ${user.accounts}">
-				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" ><span th:text="|Account ${account.accountId}:&emsp; ${account.accountName}|"></span><a/>
-			</div><hr>
+				<a th:href="@{/users/{userId}/accounts/{accountId}(userId=${user.userId}, accountId=${account.accountId})}" ><span th:text="|Account ${account.accountId}:&emsp; ${account.accountName}|"></span></a>
+			</div>
+
+					<!-- TODO create new bank account button -->
+			<form th:action="@{/users/{userId}/accounts/(userId=${user.userId})}" method="get" >
+					<input type="submit" value="Create New Bank Account" />
+			</form>
+			<hr>
 			<div>
 				<a href="http://127.0.0.1:8080/users"><span>Back to Users</span></a>
 			</div>
 		</div>
-		
+		<!-- SEVERAL users -->
 		<div th:unless="${#lists.size(users) == 1}" th:each="user : ${users}">
 		    <a th:href="@{/users/{user}(user=${user.userId})}"><span th:text="|ID: ${user.userId}|"></span></a><br/>
 			<span th:text="|username:&emsp; ${user.username}|"></span><br/>
