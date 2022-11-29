@@ -16,6 +16,7 @@ import com.coderscampus.assignment13.service.UserService;
 
 @Controller
 public class AccountController {
+// TODO maybe delete account?
     
     @Autowired
     private AccountService accountService;
@@ -34,13 +35,12 @@ public class AccountController {
         
       
         System.out.println("Long userId= " + userId);
-    
         System.out.println(userService.findById(userId));
-        User user = userService.findById(userId);
+        
         System.out.println(account + " (... from PostMapping(\"/users/{userId}/accounts\")");
         //model.put("account", newAccount(null, null));
-        account.getUsers().add(user);
-        user.getAccounts().add(account);
+ 
+        User user = userService.findById(userId);
         account = accountService.addAccount(account, user);
         
         System.out.println("@PostMapping -> user: "+ user + "account: " + account);

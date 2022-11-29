@@ -40,11 +40,8 @@ public class AccountService {
             System.out.println("account name = " + account.getAccountName() +
                     "  helle frm null clause in addAccount@AccountService/" + AccountService.class);
             
-            
-          
-//           User user =new User();
-//           user = userService.findById(userId);
-//           System.out.println(user);
+            account.getUsers().add(user);
+            user.getAccounts().add(account);
             accountRepo.save(account);
             
            System.out.println(account + "from end null clause @" +AccountService.class);
