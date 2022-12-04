@@ -36,7 +36,7 @@
 
 			<!-- Update Account Name -->
 		<div th:unless="${account.accountId == null}">
-			<h1 th:text="|updat Account #${account.accountId}: &emsp; ${account.accountName}"> </h1>
+			<h1 th:text="|update Account #${account.accountId}: &emsp; ${account.accountName}"> </h1>
 			<form action="" method="post">
 				<div>
 					Account Name: <input type="text" th:field="${account.accountName}" />

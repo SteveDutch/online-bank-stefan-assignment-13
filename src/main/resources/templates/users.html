@@ -28,6 +28,32 @@
 					Full Name: <input type="text" th:field="${user.name}" />
 				</div>
 					<hr>
+				<!-- ADDRESS -->
+				<div>
+					Address Line 1: <input type="text" th:field="${user.address.addressLine1}" />
+				</div>
+				<div>
+					Address Line 2: <input type="text" th:field="${user.address.addressLine2}" />
+				</div>				
+				<div>
+					City: <input type="text" th:field="${user.address.city}" />
+				</div>				
+				<div>
+					Region: <input type="text" th:field="${user.address.region}" />
+				</div>				
+				<div>
+					Country: <input type="text" th:field="${user.address.country}" />
+				</div>	
+			
+				<div>
+					ZipCode: <input type="text" th:field="${user.address.zipCode}" />
+					<div>
+					<input type="hidden" th:field="${user.createdDate}" />
+					</div>
+
+				<hr>
+
+
 				<div>
 					<input type="submit" value="Update User Account" />
 				</div>

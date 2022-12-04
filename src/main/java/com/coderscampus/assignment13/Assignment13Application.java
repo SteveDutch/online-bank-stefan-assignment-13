@@ -11,4 +11,3 @@ public class Assignment13Application {
 	}
 
 }
-// TODO recherche how to save db password, is there a way different from mine, e.g. reading into properties file?
